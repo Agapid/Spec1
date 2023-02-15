@@ -1,0 +1,55 @@
+﻿                
+				
+				MessageBox.Show(E.Message.ToString() + System.Environment.NewLine + 
+                                 "Обратитесь к разработчикам: plm@altonika.ru",  
+                                 "Источник: "  + E.TargetSite.Name + " (" + this.Name + ")",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
+								                 
+                  
+                    using (SqlCommand cmd = new SqlCommand("stpSpecifGetCompleteStatus", cnn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlParameter prm = new SqlParameter("@CompleteSetID", _completeSetID);
+                        cmd.Parameters.Add(prm);
+
+                        //сейчас я возвращаю только стату, а нужно возвращать еще и другие поля,
+                        //такуие как наимменование статуса и юзера и время смены статуса
+
+                        result = (CompleteStatuses)Convert.ToInt32(cmd.ExecuteScalar());
+
+                    }
+                  
+
+
+				  sp_helprotect 'stpCompleteSetsStatusSET'
+
+sp_helprolemember 'rolFormSpecificationEdit'
+go
+sp_helprolemember 'rolFormSpecificationFull'
+
+sp_help 'tblCompleteSets'
+sp_help 'tblSubjects'
+
+
+
+
+---------------ошибки--------------------------------------
+declare
+ALTONIKA.fErrorMessage ErrorMessage = new ALTONIKA.fErrorMessage();
+
+load
+ErrorMessage.FormError = this;
+ErrorMessage.SQLConnection = cnn;
+
+
+обработчик
+ErrorMessage.Ex = E;
+ErrorMessage.ShowDialog();
+---------------ошибки--------------------------------------
+
+
+
+

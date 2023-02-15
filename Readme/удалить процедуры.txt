@@ -1,0 +1,16 @@
+﻿
+обвноление главного грида
+drop proc stpSpecification01Select
+drop proc stpSpecification01RowSelect
+
+удаление одной записи в главном гриде
+stpSpecificationOneRowDelete
+
+редактирование одной заиси в главном гриде
+stpSpecificationOneRowUpdate 
+
+
+Детализация 
+stpSpecification02RowSelect
+stpSpecification02Select
+

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="A4.fTSpecView">
+    <Position X="0.5" Y="0.5" Width="4.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="A4.fTSpecView.CompleteStatusValueEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Спецификация\Спецификация-редактирование\Главные строки\fTSpecView.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Struct Name="A4.fTSpecView.CurrentCompleteStatuses" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Спецификация\Спецификация-редактирование\Главные строки\fTSpecView.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>oCBIDQikgrUBkLEAgFSGpSgGkKC9gpfiQ/RxsfuHlu0=</HashCode>
+      <FileName>Спецификация\Спецификация-редактирование\Главные строки\fTSpecView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ALTONIKA.DataBar">
+    <Position X="5.75" Y="0.5" Width="4" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="ALTONIKA.DataBar.AltBarPossibleStateEnum" Collapsed="true">
+        <TypeIdentifier />
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

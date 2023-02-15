@@ -1,0 +1,67 @@
+﻿шаблоны использовал из проекта Периодический контроль.
+
+Таблицы с данными в формахдолжны декларироваться на уровне модуля, иначе не работает позиционирования в AltBar.
+
+
+Сделать строку соединения в app.config. Описать, какэ то делать. включая измененния в файле csproj.
+
+
+Пробежаться по всему коду, зансти в копилку примеры типа того:
+//clcQTY.EditValue = dread["QTY"] == DBNull.Value ? 0 : (int)dread["QTY"]; !!!!!!!!!!!!
+или
+//if (lkpKeeObj.ItemIndex > -1)
+//{
+//    clcQTY.Value = (int)lkpKeeObj.Properties.GetDataSourceValue("QTY", lkpKeeObj.ItemIndex);
+//}
+//else
+//{
+//    clcQTY.EditValue = null;
+//}
+//SetForeColor(clcQTY, System.Drawing.Color.Black);
+
+
+
+Порядок действаий:
+
+EnterMoveNext
+TabIndex
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Технологические операции
+A3.fTechOperView
+
+stpTechOperationGetData
+stpTechOperationGetDataRow
+stpTechOperationSave
+
+
+
+Технологические участки
+A3.fTechSecView
+
+stpTechSecLookUps
+
+stpTechSecSELECT
+stpTechSecRowSELECT
+stpTechSecDUI
+stpTechSecPrior
+
+stpTechSecDetailsSELECT
+stpTechSecDetailsRowSELECT
+stpTechSecDetailsDUI
+
+

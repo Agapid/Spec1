@@ -1,0 +1,91 @@
+﻿https://question-it.com/questions/5713553/poluchit-kolichestvo-elementov-razdelennyh-zapjatymi-v-stroke-v-sql
+
+
+
+declare @input varchar(max)
+--set @input = 'R1,R15-R19,RN5-RN6'
+
+SELECT @input = 'R45,48,50,52,53,55,57-64'
+
+select @input
+
+declare @elements table
+(
+    Element varchar(10),
+    [Count] int
+)
+
+declare @element varchar(10)
+declare @index int
+declare @count int
+declare @left varchar(10)
+declare @right varchar(10)
+declare @position int
+
+while (len(@input) > 0 and charindex(',', @input) > 0)
+begin
+    set @element = substring(@input, 0, charindex(',', @input))
+    if (charindex('-', @element) > 0)
+    begin
+        set @index = charindex('-', @element)
+        set @left = left(@element, @index - 1)
+        set @right = substring(@element, @index + 1, len(@element) - len(@left))
+
+        set @position = 0
+        while (isnumeric(substring(@left, @position, 1)) = 0)
+        begin
+            set @position = @position + 1
+        end
+        set @left = substring(@left, @position, len(@left))
+
+        set @position = 0
+        while (isnumeric(substring(@right, @position, 1)) = 0)
+        begin
+            set @position = @position + 1
+        end
+        set @right = substring(@right, @position, len(@right))
+
+        set @count = cast(@right as int) - cast(@left as int) + 1
+    end
+    else
+    begin
+        set @count = 1
+    end
+    insert into @elements select @element, @count
+    set @input = replace(@input, @element + ',', '')
+end
+
+if (len(@input) > 0)
+begin
+    set @element = @input
+    if (charindex('-', @element) > 0)
+    begin
+        set @index = charindex('-', @element)
+        set @left = left(@element, @index - 1)
+        set @right = substring(@element, @index + 1, len(@element) - len(@left))
+
+        set @position = 0
+        while (isnumeric(substring(@left, @position, 1)) = 0)
+        begin
+            set @position = @position + 1
+        end
+        set @left = substring(@left, @position, len(@left))
+
+        set @position = 0
+        while (isnumeric(substring(@right, @position, 1)) = 0)
+        begin
+            set @position = @position + 1
+        end
+        set @right = substring(@right, @position, len(@right))
+
+        set @count = cast(@right as int) - cast(@left as int) + 1
+    end
+    else
+    begin
+        set @count = 1
+    end
+    insert into @elements select @element, @count
+end
+
+select * from @elements
+select sum([Count]) from @elements
